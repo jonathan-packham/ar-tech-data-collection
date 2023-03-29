@@ -1,0 +1,217 @@
+.Deactive-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Deactive-content {
+    padding-right: 6%;
+    padding-left: 6%;
+}
+
+.Deactive-logo-h {
+    width: 100%;
+}
+
+.Form-display-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Form-display-content {
+    padding-left: 6%;
+    padding-right: 6%;
+    box-shadow: #333 0 0 10px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+.Form-display-logo-s {
+    height: 150px;
+    width: 150px;
+}
+
+.Form-display-title {
+    text-align: center;
+    margin-bottom: 1em;
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+}
+
+.Form-display-table-contain {
+    width: 500px;
+    display: flex;
+    border-radius: 10px;
+    padding-top: 4%;
+}
+
+.Hazard-form {
+    width: 560px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+}
+
+.Hazard-form-check-contain {
+    width: 500px;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 10px;
+    padding-top: 4%;
+    padding-left: 4%;
+}
+
+.Hazard-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Hazard-form-content {
+    padding-left: 6%;
+    padding-right: 6%;
+    margin-top: auto;
+}
+
+.Hazard-form-header {
+    width: 100%;
+    height: 200px;
+    display: inline-flex;
+    align-items: flex-start;
+}
+
+.Hazard-form-logo {
+    width: 100%;
+}
+
+.Hazard-form-logo-square {
+    display: inline-flex;
+}
+
+.Hazard-form-subtitle {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 20px;
+    color: rgb(34, 34, 34);
+    font-weight: 600;
+}
+
+.Hazard-form-text-display {
+    background-color: #A2AAAD;
+}
+
+.Hazard-form-title {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 1em;
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+}
+
+.HTS-logo {
+    width: 100px;
+    height: 100px;
+    display: flex; 
+    margin: 0 auto;
+}
+
+.next-page-btn {
+    float: right;
+    background-color: #ED2E38;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.next-page-btn-disabled {
+    float: right;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.page-btns {
+    display: inline;
+}
+
+.prev-page-btn {
+    float: left;
+    background-color: #ED2E38;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.prev-page-btn-disabled {
+    float: left;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.save-and-exit-btn {
+    display: inline-flex;
+    background-color: #ED2E38;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.sign-canvas {
+    width: 100%;
+    height: 100px;
+}
+
+.sign-pad-container {
+    background-color: rgb(238, 235, 235);
+    padding: 0 10px 10px;
+}
+
+.sign-pad-container hr {
+    margin-bottom: unset;
+    background-color: gainsboro;
+}
+
+.sign-pad-container button {
+    border: none;
+    margin-left: auto;
+    color: rgb(78, 75, 75);
+    padding: 0;
+    display: block;
+    margin-top: 5px;
+}
+
+.sign-pad-container button:hover {
+    background-color: unset;
+    color: black;
+}
+
+.sign-title {
+    font-weight: 600;
+}
+
+.Splash-container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .Splash-content {
+    align-items: center;
+    justify-content: center;
+    padding-left: 6%;
+    padding-right: 6%;
+    background-color: #f7bf50;
+    width: 300px;
+    height: 200px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+  }

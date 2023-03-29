@@ -1,21 +1,21 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "AR-Tech",
+  "name": "AR-Tech Data Entry App",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "perfSquare.png",
+      "sizes": "423x423",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "smallSquare.png",
+      "sizes": "144x121",
+      "type": "image/png"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "squareAgain.png",
+      "sizes": "143x144",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
