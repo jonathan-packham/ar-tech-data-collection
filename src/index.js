@@ -15,6 +15,6 @@ root.render(
     </React.StrictMode>
 );
 
-serviceWorkerRegistration.unregister('service-worker.js');
+serviceWorkerRegistration.register('service-worker.js');
 
 reportWebVitals(console.log);
