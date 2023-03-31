@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import SyncLoader from 'react-spinners/SyncLoader';
-//import {useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Cookies from 'js-cookie';
 import '../App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,7 +9,7 @@ import htsLogo from '../assets/htslogo.jpg';
 import {Navbar, Nav, Container} from 'react-bootstrap';
 
 export default function Profile() {
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState(null);
     // const [loginStatus, setLoginStatus] = useState(false);
@@ -24,6 +24,10 @@ export default function Profile() {
     //         setLoginStatus(false);
     //     }
     // }
+
+    const logout = () => {
+        return navigate('/logout');
+    }
 
     function getUsername() {
         let temp = Cookies.get('username');
@@ -112,6 +116,9 @@ export default function Profile() {
                     <div className='border rounded mt-2 Profile-text-display'>Username: {user.Username}</div>
                     <div className='border rounded mt-2 Profile-text-display'>Name: {user.FirstName} {user.LastName}</div>
                     <div className='border rounded mt-2 Profile-text-display'>Phone: {user.Phone}</div>
+                </div>
+                <div className='logout-container'>
+                    <button className='logout-btn' type='button' onClick={logout} >Logout</button>
                 </div>
             </div>
         </div>

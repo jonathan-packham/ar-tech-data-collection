@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import SyncLoader from 'react-spinners/SyncLoader';
-// import {useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 // import Cookies from 'js-cookie';
 import './Components.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,7 +9,7 @@ import htsLogo from '../assets/htslogo.jpg';
 import {Navbar, Nav, Container} from 'react-bootstrap';
 
 export default function Forms() {
-    // const navigate = useNavigate;
+    const navigate = useNavigate();
     // const [loginStatus, setLoginStatus] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [formData, setFormData] = useState(null);
@@ -22,6 +22,10 @@ export default function Forms() {
     //         navigate('/login');
     //     }
     // }
+
+    const logout = () => {
+        return navigate('/logout');
+    }
 
     async function getFormData() {
         try {
@@ -114,6 +118,9 @@ export default function Forms() {
                             })}
                         </tbody>
                     </table>
+                </div>
+                <div className='logout-container'>
+                    <button className='logout-btn' type='button' onClick={logout} >Logout</button>
                 </div>
             </div>
         </div>

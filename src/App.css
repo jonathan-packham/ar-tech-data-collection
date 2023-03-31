@@ -72,49 +72,19 @@
     width: 100%;
   }
   
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  .logout-btn {    
+    background-color: #ed2e38;
+    width: 80px;
+    height: 30px;
+    border-radius: 8px;
   }
 
-  .Home-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
+  .logout-container {
     justify-content: center;
-    align-items: center;
-  }
-  
-  .Home-content {
-    padding-left: 4%;
-    padding-right: 4%;
-    box-shadow: #333 0 0 10px;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-  }
-  
-  .Home-logo-s {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .Home-options {
+    align-items: baseline;
+    padding-top: 20px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 30px auto;
-  }
-
-  .Home-title {
-    text-align: center;
-    margin-bottom: 1em;
-    font-size: 24px;
-    color: rgb(34, 34, 34);
-    font-weight: 800;
+    height: 80px;
   }
 
   .HTS-logo {
@@ -131,31 +101,6 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
-  }
-
-  .panel {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 30px auto;
-  }
-  
-  .panel a {
-    width: 150px;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
-    display: inline-block;
-    padding: 30px;
-    box-shadow: #333 0 0 10px;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    color: #333;
-  }
-  
-  .panel a:hover {
-    color: #fff;
-    background: #333;
   }
   
   .Profile-container {
@@ -192,6 +137,7 @@
   }
   
   .Profile-user-stats {
+    padding-top: 5px;
     margin-top: 10px;
   }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
-import Home from './components/home';
 import Login from './components/Auth';
 import Logout from './components/logout';
 import Profile from './components/profile';
@@ -15,7 +14,6 @@ function App() {
         <div className='App'>
             <Routes>
                 <Route path="/" element={<Login />} />
-                <Route path="/home" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/logout" element={<Logout />} />

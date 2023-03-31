@@ -1,10 +1,13 @@
 import {useEffect} from 'react';
-import {redirect} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 export default function Logout() {
+    const navigate = useNavigate();
     useEffect(() => {
-        Cookies.remove('loggedIn');
-        return redirect('/login');
+        Cookies.remove('username');
+        Cookies.remove('phone');
+        Cookies.remove('empID');
+        return navigate('/login');
     })
 }

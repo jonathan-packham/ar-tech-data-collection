@@ -15,7 +15,7 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
 
   const Save = e => {
     e.preventDefault();
-    const URL = sigCanvas.current.getTrimmedCanvas().toDataURL("image/jpeg");
+    const URL = sigCanvas.toDataURL('image/png');
     setImageURL(URL);
     handleSignChange(imageURL);
     localStorage.setItem(moreValues.employeeID + "signature" + moreValues.time, JSON.stringify(imageURL));
@@ -54,7 +54,7 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
             <div className='border rounded sign-pad-container'>
               <SignatureCanvas
                 penColor="black"
-                canvasProps={{ className: "sign-canvas" }}
+                canvasProps={{className: "sign-canvas" }}
                 ref={sigCanvas}
               />
               <hr />
