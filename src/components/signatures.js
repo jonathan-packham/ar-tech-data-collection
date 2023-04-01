@@ -15,7 +15,7 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
 
   const Save = e => {
     e.preventDefault();
-    const URL = sigCanvas.toDataURL('image/png');
+    const URL = sigCanvas.current.toDataURL('image/png');
     setImageURL(URL);
     handleSignChange(imageURL);
     localStorage.setItem(moreValues.employeeID + "signature" + moreValues.time, JSON.stringify(imageURL));
