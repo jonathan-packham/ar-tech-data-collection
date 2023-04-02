@@ -120,7 +120,7 @@ export default function Forms() {
                     </table>
                 </div>
                 <div className='logout-container'>
-                    <button className='logout-btn' type='button' onClick={logout} >Logout</button>
+                    <button className='mb-2 w-25 btn btn-custom' type='button' onClick={logout} >Logout</button>
                 </div>
             </div>
         </div>

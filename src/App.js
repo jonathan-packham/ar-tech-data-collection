@@ -8,6 +8,7 @@ import Profile from './components/profile';
 import HazardForm from './components/hazardForm';
 import Deactive from './components/deactivated';
 import Forms from './components/forms';
+import Reset from './components/reset';
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/forms" element={<Forms />} />
                 <Route path="/newForm" element={<HazardForm />} />
                 <Route path="/deactive" element={<Deactive />} />
+                <Route path="/reset" element={<Reset />} />
             </Routes>
         </div>
     );

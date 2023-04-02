@@ -29,6 +29,10 @@ export default function Profile() {
         return navigate('/logout');
     }
 
+    const reset = () => {
+        return navigate('/reset');
+    }
+
     function getUsername() {
         let temp = Cookies.get('username');
         console.log(temp);
@@ -117,8 +121,9 @@ export default function Profile() {
                     <div className='border rounded mt-2 Profile-text-display'>Name: {user.FirstName} {user.LastName}</div>
                     <div className='border rounded mt-2 Profile-text-display'>Phone: {user.Phone}</div>
                 </div>
-                <div className='logout-container'>
-                    <button className='logout-btn' type='button' onClick={logout} >Logout</button>
+                <div className='py-2 logout-container'>
+                    <button className='m-1 w-50 btn btn-custom' type='button' onClick={reset} >Reset Password</button>
+                    <button className='m-1 w-50 btn btn-custom' type='button' onClick={logout} >Logout</button>
                 </div>
             </div>
         </div>

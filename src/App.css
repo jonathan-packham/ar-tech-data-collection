@@ -80,6 +80,7 @@
   }
 
   .logout-container {
+    display: inline-flex;
     justify-content: center;
     align-items: baseline;
     padding-top: 20px;
