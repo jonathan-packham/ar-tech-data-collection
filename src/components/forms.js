@@ -13,6 +13,7 @@ export default function Forms() {
     // const [loginStatus, setLoginStatus] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [formData, setFormData] = useState(null);
+    const [formsToUpload, setFormsToUpload] = useState(true);
 
     // const isLoggedIn = () => {
     //     setLoginStatus(Cookies.get('loginstatus'))
@@ -54,6 +55,28 @@ export default function Forms() {
     // useEffect(() => {
     //     isLoggedIn();
     // });
+
+    async function uploadForm() {
+        const formData = localStorage.get('FormToUpload' + Date().toLocaleString().substring(4, 15));
+        try {
+            const response = await fetch("http://localhost/backend/upload.php", {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            const data = await response.json;
+            if (data === 'Success!') {
+                setFormsToUpload(false);
+            } else {
+                setFormsToUpload(true);
+            }
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
 
     useEffect(() => {
         getFormData();
@@ -119,9 +142,14 @@ export default function Forms() {
                         </tbody>
                     </table>
                 </div>
-                <div className='logout-container'>
-                    <button className='mb-2 w-25 btn btn-custom' type='button' onClick={logout} >Logout</button>
-                </div>
+                {formsToUpload ? 
+                    <div className='logout-container'>
+                        <button className='m-1 w-25 btn btn-custom' type='button' onClick={uploadForm} >Upload Forms</button>
+                    </div> :            
+                    <div className='logout-container'>
+                        <button className='mb-2 w-25 btn btn-custom' type='button' onClick={logout} >Logout</button>
+                    </div>
+                }
             </div>
         </div>
 }
