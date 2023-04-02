@@ -145,6 +145,7 @@ export default function Forms() {
                 {formsToUpload ? 
                     <div className='logout-container'>
                         <button className='m-1 w-25 btn btn-custom' type='button' onClick={uploadForm} >Upload Forms</button>
+                        <button className='mb-2 w-25 btn btn-custom' type='button' onClick={logout} >Logout</button>
                     </div> :            
                     <div className='logout-container'>
                         <button className='mb-2 w-25 btn btn-custom' type='button' onClick={logout} >Logout</button>
