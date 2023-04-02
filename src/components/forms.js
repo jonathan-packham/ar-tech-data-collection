@@ -67,7 +67,7 @@ export default function Forms() {
                 },
                 body: JSON.stringify(formData),
             })
-            const data = await response.json;
+            const data = await response.json();
             if (data === 'Success!') {
                 setFormsToUpload(false);
             } else {
