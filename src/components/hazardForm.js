@@ -443,7 +443,7 @@ class HazardForm extends Component {
         }
         this.uploadData();
         console.log(this.state.response);
-        localStorage.setItem('FormToUpload', JSON.stringify(tempArray));
+        localStorage.setItem('FormToUpload' + this.state.date, JSON.stringify(tempArray));
         // const { navigate } = this.props;
         // if (this.uploadData()) {
         //     navigate('/forms');
