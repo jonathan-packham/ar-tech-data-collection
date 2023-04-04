@@ -17,9 +17,12 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
         // Bind result variables
         mysqli_stmt_bind_result($stmt, $dateTime, $formNum, $jobID, $jobName, $locationID, $locationName);
         $formData = array();
-        while (mysqli_stmt_fetch($stmt)) { 
+        $numRows = mysqli_stmt_num_rows($stmt);
+        $i = 0;
+        while (mysqli_stmt_fetch($stmt) && $i <= $numRows && $i <= 2) { 
             $form = array("DateTime" => $dateTime, "FormID" => $formNum, "JobID" => $jobID, "JobName" => $jobName, "LocationID" => $locationID, "LocationName" => $locationName); 
-            array_push($formData, $form);  
+            array_push($formData, $form);
+            $i++; 
         }
         echo json_encode(["FormData" => $formData]);
     }
