@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cookies from 'js-cookie';
+//import {useNavigate} from 'react-router-dom';
 import withRouter from './withRouter';
 import Hazards1 from './hazards1';
 import Hazards2 from './hazards2';
@@ -273,9 +274,8 @@ class HazardForm extends Component {
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.id;
-        if (input === 'jobID' || input === 'musterPoint' || input === 'jobSteps' || input === 'idenHaz' || input === 'eliminate' || input === 'signature') {
+        if (input === 'jobID' || input === 'musterPoint' || input === 'jobSteps' || input === 'idenHaz' || input === 'eliminate') {
             this.setState({ [input]: e.target.value });
-            console.log('hi');
         }
         this.setState({ [name]: value})
         console.log(this.state);
@@ -286,7 +286,7 @@ class HazardForm extends Component {
     }
 
     // save input to local storage and upload to database
-    SaveAndExit = e => {
+    SaveAndExit = (formData) => {
         const {
             formVersionNum,
             employeeID,
@@ -362,8 +362,8 @@ class HazardForm extends Component {
             workingAlone,
             heights,
             workSiteEntry,
-            signature,
         } = this.state;
+        const signature = formData;
         const tempArray = {
             formVersionNum,
             employeeID,
@@ -444,10 +444,8 @@ class HazardForm extends Component {
         this.uploadData();
         console.log(this.state.response);
         localStorage.setItem('FormToUpload' + this.state.date, JSON.stringify(tempArray));
-        // const { navigate } = this.props;
-        // if (this.uploadData()) {
-        //     navigate('/forms');
-        // }
+        // const navigate = useNavigate();
+        // return navigate('/forms');
     }
 
     async uploadData() {

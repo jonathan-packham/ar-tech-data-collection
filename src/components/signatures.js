@@ -19,7 +19,7 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
     setImageURL(URL);
     handleSignChange(imageURL);
     localStorage.setItem(moreValues.employeeID + "signature" + moreValues.time, JSON.stringify(imageURL));
-    SaveAndExit();
+    SaveAndExit(imageURL);
   }
 
   return (
