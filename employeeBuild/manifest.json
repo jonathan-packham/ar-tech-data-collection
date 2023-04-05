@@ -1,0 +1,25 @@
+{
+  "short_name": "AR-Tech",
+  "name": "AR-Tech Data Entry App",
+  "icons": [
+    {
+      "src": "perfSquare.png",
+      "sizes": "423x423",
+      "type": "image/png"
+    },
+    {
+      "src": "smallSquare.png",
+      "sizes": "144x121",
+      "type": "image/png"
+    },
+    {
+      "src": "squareAgain.png",
+      "sizes": "143x144",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

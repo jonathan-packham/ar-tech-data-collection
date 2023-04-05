@@ -1,4 +1,5 @@
 import React, {useRef, useState} from 'react';
+import Modal from 'react-bootstrap/Modal';
 import SignatureCanvas from 'react-signature-canvas';
 import './Components.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,6 +7,7 @@ import squareLogo from '../assets/squareLogo.jpg';
 
 const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, moreValues}) => {
   const [imageURL, setImageURL] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
   const sigCanvas = useRef()
 
   const Previous = e => {
@@ -50,16 +52,33 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
             <textarea className='form-control' id='musterPoint' rows='1' value={moreValues.musterPoint} onChange={handleChange('musterPoint')}></textarea>
           </div>
           <div className='my-3 justify-content-center'>
-            <span className='sign-title'>Sign Here</span>
-            <div className='border rounded sign-pad-container'>
-              <SignatureCanvas
-                penColor="black"
-                canvasProps={{className: "sign-canvas" }}
-                ref={sigCanvas}
-              />
-              <hr />
-              <button type='button' onClick={() => sigCanvas.current.clear()}>Clear</button>
-            </div>
+            <button onClick={() => setOpenModal(true)} type='button' className='btn btn-custom'>Sign Form</button>
+            <br />
+            {openModal && (
+              <Modal
+                size='lg'
+                aria-labelledby='contained-modal-title-vcenter'
+                centered
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id='contained-modal-title-vcenter'>
+                    Enter employees present and have them sign
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <h4>Enter Employee</h4>
+                  <div className='border rounded sign-pad-container'>
+                    <SignatureCanvas
+                      penColor="black"
+                      canvasProps={{ className: "sign-canvas" }}
+                      ref={sigCanvas}
+                    />
+                    <hr />
+                    <button type='button' onClick={() => sigCanvas.current.clear()}>Clear</button>
+                  </div>
+                </Modal.Body>
+              </Modal> 
+            )}
           </div>
           <div className='page-btns'>
             <div className='prev-page-btn'>
