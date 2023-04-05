@@ -452,7 +452,7 @@ class HazardForm extends Component {
         let date = this.state.date + ' ' + this.state.time;
         date = date.toString();
         try {
-            const response = await fetch("http://localhost/backend/upload.php", {
+            const response = await fetch("http://localhost/employeeBackend/upload.php", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

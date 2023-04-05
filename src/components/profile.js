@@ -46,7 +46,7 @@ export default function Profile() {
             const passedUsername = {
                 username: username,
             }
-            const response = await fetch("http://localhost/backend/getUser.php", {
+            const response = await fetch("http://localhost/employeeBackend/getUser.php", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

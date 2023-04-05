@@ -59,7 +59,7 @@ export default function Forms() {
     async function uploadForm() {
         const formData = localStorage.get('FormToUpload' + Date().toLocaleString().substring(4, 15));
         try {
-            const response = await fetch("http://localhost/backend/upload.php", {
+            const response = await fetch("http://localhost/employeeBackend/upload.php", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

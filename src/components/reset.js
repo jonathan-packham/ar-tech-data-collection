@@ -47,7 +47,7 @@ export default function Reset() {
 
     async function resetRequest() {
         try {
-            const response = await fetch('http://localhost/backend/reset.php', {
+            const response = await fetch('http://localhost/employeeBackend/reset.php', {
                 method: 'GET',
                 body: JSON.stringify({
                     Username: username,

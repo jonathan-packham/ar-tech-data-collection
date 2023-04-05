@@ -12,7 +12,7 @@ const Hazards1 = ({SaveAndExit, nextStep, handleChange, values, moreValues}) => 
   async function getJobs() {
     let fetchedJobs = [];
     try {
-      const response = await fetch("http://localhost/backend/getJobs.php", {
+      const response = await fetch("http://localhost/employeeBackend/getJobs.php", {
         method: 'GET',
         headers: {
           'Accept': 'application/json',

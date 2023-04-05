@@ -55,7 +55,7 @@ export default function Login() {
                 Username: user,
                 User_Password: pass,
             };
-            const response = await fetch("http://localhost/backend/login.php", {
+            const response = await fetch("http://localhost/employeeBackend/login.php", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
