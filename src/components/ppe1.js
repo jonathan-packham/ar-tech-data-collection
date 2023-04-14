@@ -56,10 +56,6 @@ const Ppe1 = ({prevStep, SaveAndExit, nextStep, handleChange, values, moreValues
                 <input className='form-check-input' type='checkbox' value={values.communicationDev} onChange={handleChange('communicationDev')} id='communicationDev' />
                 <label style={{fontSize: 14}} className='form-check-label' htmlFor='communicationDev'>Communication Device</label>
               </div>
-              <div className='col form-check form-check-inline'>
-                <input className='form-check-input' type='checkbox' value={values.fireResist} onChange={handleChange('fireResist')} id='fireResist' />
-                <label style={{fontSize: 14}} className='form-check-label' htmlFor='fireResist'>Fire Resistant Clothing</label>
-              </div>
             </div>
             <div className='row Hazard-form-check-contain'>
               <div className='col form-check form-check-inline'>
@@ -93,14 +89,14 @@ const Ppe1 = ({prevStep, SaveAndExit, nextStep, handleChange, values, moreValues
                 <label style={{fontSize: 14}} className='form-check-label' htmlFor='lifeline'>Lifeline, Lanyard with Shock Absorber, Safety Harness</label>
               </div>
               <div className='col form-check form-check-inline'>
-                <input className='form-check-input' type='checkbox' value={values.gasMon} onChange={handleChange('gasMon')} id='gasMon' />
-                <label style={{fontSize: 14}} className='form-check-label' htmlFor='gasMon'>Personal Gas Monitor</label>
+                <input className='form-check-input' type='checkbox' value={values.fireResist} onChange={handleChange('fireResist')} id='fireResist' />
+                <label style={{fontSize: 14}} className='form-check-label' htmlFor='fireResist'>FR Coveralls</label>
               </div>
             </div>
             <div className='row Hazard-form-check-contain'>
               <div className='col form-check form-check-inline'>
-                <input className='form-check-input' type='checkbox' value={values.safeLight} onChange={handleChange('safeLight')} id='safeLight' />
-                <label style={{fontSize: 14}} className='form-check-label' htmlFor='safeLight'>Intrinsically Safe Lighting</label>
+                <input className='form-check-input' type='checkbox' value={values.gasMon} onChange={handleChange('gasMon')} id='gasMon' />
+                <label style={{fontSize: 14}} className='form-check-label' htmlFor='gasMon'>Personal Gas Monitor</label>
               </div>
               <div className='col form-check form-check-inline'>
                 <input className='form-check-input' type='checkbox' value={values.safeGlasses} onChange={handleChange('safeGlasses')} id='safeGlasses' />

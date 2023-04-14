@@ -31,7 +31,7 @@ export default function Forms() {
     async function getFormData() {
         try {
             let forms = [];
-            const response = await fetch("http://localhost/backend/getFormData.php", {
+            const response = await fetch("http://localhost/employeeBackend/getFormData.php", {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Cookies from 'js-cookie';
-//import {useNavigate} from 'react-router-dom';
 import withRouter from './withRouter';
 import Hazards1 from './hazards1';
 import Hazards2 from './hazards2';
@@ -97,7 +96,7 @@ class HazardForm extends Component {
             //canvas
             signature: '',
         };
-
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleSignChange = this.handleSignChange.bind(this);
     }
@@ -443,12 +442,11 @@ class HazardForm extends Component {
         }
         this.uploadData();
         console.log(this.state.response);
-        localStorage.setItem('FormToUpload' + this.state.date, JSON.stringify(tempArray));
-        // const navigate = useNavigate();
-        // return navigate('/forms');
+        localStorage.setItem('FormToUpload' + this.state.date, tempArray);
     }
 
     async uploadData() {
+        const {navigate} = this.props;
         let date = this.state.date + ' ' + this.state.time;
         date = date.toString();
         try {
@@ -549,6 +547,9 @@ class HazardForm extends Component {
             this.setState({
                 response: data,
             });
+            if (data === 'Success!') {
+                navigate('/forms');
+            }
         } catch (error) {
             console.log(error.message)
         }

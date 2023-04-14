@@ -1,14 +1,23 @@
 import React, {useRef, useState} from 'react';
 import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import SignatureCanvas from 'react-signature-canvas';
 import './Components.css';
+import '../App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import squareLogo from '../assets/squareLogo.jpg';
 
 const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, moreValues}) => {
-  const [imageURL, setImageURL] = useState(null);
+  const signatures = [];
   const [openModal, setOpenModal] = useState(false);
-  const sigCanvas = useRef()
+  const sigCanvas1 = useRef();
+  const sigCanvas2 = useRef();
+  const sigCanvas3 = useRef();
+  const sigCanvas4 = useRef();
+
+  const handleShow = () => setOpenModal(true);
+  const handleClose = () => setOpenModal(false);
 
   const Previous = e => {
     e.preventDefault();
@@ -17,11 +26,19 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
 
   const Save = e => {
     e.preventDefault();
-    const URL = sigCanvas.current.toDataURL('image/png');
-    setImageURL(URL);
-    handleSignChange(imageURL);
-    localStorage.setItem(moreValues.employeeID + "signature" + moreValues.time, JSON.stringify(imageURL));
-    SaveAndExit(imageURL);
+    // const URL = sigCanvas1.current.toDataURL('image/png');
+    // setImageURL(URL);
+    // handleSignChange(imageURL);
+    // localStorage.setItem(moreValues.employeeID + "signature" + moreValues.time, JSON.stringify(imageURL));
+    // SaveAndExit(imageURL);
+    const url1 = sigCanvas1.current.toDataURL();
+    const url2 = sigCanvas2.current.toDataURL();
+    const url3 = sigCanvas3.current.toDataURL();
+    const url4 = sigCanvas4.current.toDataURL();
+
+    signatures.push(url1, url2, url3, url4);
+    handleSignChange(signatures);
+    SaveAndExit(signatures);
   }
 
   return (
@@ -52,32 +69,95 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
             <textarea className='form-control' id='musterPoint' rows='1' value={moreValues.musterPoint} onChange={handleChange('musterPoint')}></textarea>
           </div>
           <div className='my-3 justify-content-center'>
-            <button onClick={() => setOpenModal(true)} type='button' className='btn btn-custom'>Sign Form</button>
+            <button onClick={handleShow} className='btn btn-custom'>Sign Form</button>
             <br />
             {openModal && (
-              <Modal
-                size='lg'
-                aria-labelledby='contained-modal-title-vcenter'
-                centered
-              >
+              <Modal show={openModal} onHide={handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title id='contained-modal-title-vcenter'>
-                    Enter employees present and have them sign
-                  </Modal.Title>
+                  <Modal.Title>Form Signatures</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <h4>Enter Employee</h4>
-                  <div className='border rounded sign-pad-container'>
-                    <SignatureCanvas
-                      penColor="black"
-                      canvasProps={{ className: "sign-canvas" }}
-                      ref={sigCanvas}
-                    />
-                    <hr />
-                    <button type='button' onClick={() => sigCanvas.current.clear()}>Clear</button>
-                  </div>
+                  <Form>
+                    <Form.Group className='mb-3' controlId='signatures.ControlInput1'>
+                      <FloatingLabel
+                        controlId='floatingInput'
+                        label='Employee 1. Name: '
+                      >
+                        <Form.Control
+                          type='text' 
+                          placeholder='Employee Name:' 
+                          autoFocus
+                        />
+                      </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className='mb-3'>
+                      <Form.Label>Signature: </Form.Label>
+                      <SignatureCanvas 
+                        penColor='black'
+                        canvasProps={{className: 'sign-canvas'}}
+                        ref={sigCanvas1}
+                      />
+                    </Form.Group>
+                    <Form.Group className='mb-3' controlId='signatures.ControlInput2'>
+                      <FloatingLabel
+                        controlId='floatingInput'
+                        label='Employee 2. Name: '
+                      >
+                        <Form.Control
+                          type='text' 
+                          placeholder='Employee Name:' 
+                        />
+                      </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className='mb-3'>
+                      <Form.Label>Signature: </Form.Label>
+                      <SignatureCanvas 
+                        penColor='black'
+                        canvasProps={{className: 'sign-canvas'}}
+                        ref={sigCanvas2}
+                      />
+                    </Form.Group>
+                    <Form.Group className='mb-3' controlId='signatures.ControlInput3'>
+                      <FloatingLabel
+                        controlId='floatingInput'
+                        label='Employee 3. Name: '
+                      >
+                        <Form.Control
+                          type='text'
+                          placeholder='Employee Name: '
+                        />
+                      </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className='mb-3'>
+                      <Form.Label>Signature: </Form.Label>
+                      <SignatureCanvas
+                        penColor='black'
+                        canvasProps={{className: 'sign-canvas'}}
+                        ref={sigCanvas3}
+                      />
+                    </Form.Group>
+                    <Form.Group className='mb-3' controlId='signatures.ControlInput3'>
+                      <FloatingLabel
+                        controlId='floatingInput'
+                        label='Employee 4. Name: '
+                      >
+                        <Form.Control
+                          type='text'
+                          placeholder='Employee Name: '
+                        />
+                      </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className='mb-3'>
+                      <Form.Label>Signature: </Form.Label>
+                      <SignatureCanvas
+                        penColor='black'
+                        canvasProps={{className: 'sign-canvas'}}
+                        ref={sigCanvas4}
+                      />
+                    </Form.Group>
+                  </Form>
                 </Modal.Body>
-              </Modal> 
+              </Modal>
             )}
           </div>
           <div className='page-btns'>
