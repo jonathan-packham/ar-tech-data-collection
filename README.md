@@ -11,3 +11,4 @@ Frameworks and Technologies used:
   - React-Router-Dom
   - React-Signature-Canvas
   - Workbox
+  - React-Spinners
