@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.54826f70.css",
+    "main.js": "/static/js/main.c2775167.js",
+    "static/js/787.7604fdc7.chunk.js": "/static/js/787.7604fdc7.chunk.js",
+    "static/media/htslogo.jpg": "/static/media/htslogo.a93be640039cae8bd6c5.jpg",
+    "static/media/squareLogo.jpg": "/static/media/squareLogo.83f01cbe9f00ceb61421.jpg",
+    "static/media/artechlogoHorizontal.jpg": "/static/media/artechlogoHorizontal.73f106b548e0d56d0c17.jpg",
+    "service-worker.js": "/service-worker.js",
+    "index.html": "/index.html",
+    "main.54826f70.css.map": "/static/css/main.54826f70.css.map",
+    "main.c2775167.js.map": "/static/js/main.c2775167.js.map",
+    "787.7604fdc7.chunk.js.map": "/static/js/787.7604fdc7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54826f70.css",
+    "static/js/main.c2775167.js"
+  ]
+}

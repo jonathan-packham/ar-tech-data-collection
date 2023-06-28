@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "foundation";
+    $database = "artech-v2";
 
     // create connection
     $conn = new mysqli($servername, $username, $password, $database);
