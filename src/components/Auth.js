@@ -119,8 +119,9 @@ export default function Login() {
                     <img src={artechlogoH} alt='Logo' className='Auth-logo-h' />
                     <h3 className='Auth-form-title'>Sign In</h3>
                     <div className='form-group mt-3'>
-                        <label>Username:</label>
+                        <label for='user'>Username:</label>
                         <input
+                            id='user'
                             type='username'
                             className={userValid}
                             placeholder='Enter Username:'
@@ -132,10 +133,11 @@ export default function Login() {
                         </div>
                     </div>
                     <div className='form-group mt-3'>
-                        <label>Password: </label>
+                        <label for='pass'>Password: </label>
                         <div className='form-row'>
                             <div className='input-group'>
                                 <input
+                                    id='pass'
                                     type={passwordType}
                                     className={passValid}
                                     placeholder='Enter Password:'

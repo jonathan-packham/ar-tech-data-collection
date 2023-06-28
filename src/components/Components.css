@@ -1,3 +1,14 @@
+.btn-custom {
+    background-color: #ed2e38;
+    border-color: #ed2e38;
+    color: black;
+}
+
+.btn-custom:hover {
+    background-color: #A2AAAD;
+    border-color: #A2AAAD;
+}
+
 .Deactive-container {
     display: flex;
     justify-content: center;

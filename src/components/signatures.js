@@ -1,14 +1,15 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Button from 'react-bootstrap/Button';
 import SignatureCanvas from 'react-signature-canvas';
 import './Components.css';
 import '../App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import squareLogo from '../assets/squareLogo.jpg';
 
-const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, moreValues}) => {
+const Signatures = ({ prevStep, SaveAndExit, handleChange, handleSignChange, moreValues }) => {
   const signatures = [];
   const [openModal, setOpenModal] = useState(false);
   const sigCanvas1 = useRef();
@@ -46,7 +47,7 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
       <form className='Hazard-form'>
         <div className='Hazard-form-content'>
           <div className='row Hazard-form-header'>
-            <img  src={squareLogo} alt='Logo' className='col w-25 Hazard-form-logo-square' />
+            <img src={squareLogo} alt='Logo' className='col w-25 Hazard-form-logo-square' />
             <div className='col w-75 pt-3'>
               <div className='row border rounded mt-2 Hazard-form-text-display'>
                 Employee ID: {moreValues.employeeID}
@@ -69,7 +70,7 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
             <textarea className='form-control' id='musterPoint' rows='1' value={moreValues.musterPoint} onChange={handleChange('musterPoint')}></textarea>
           </div>
           <div className='my-3 justify-content-center'>
-            <button onClick={handleShow} className='btn btn-custom'>Sign Form</button>
+            <Button onClick={handleShow} style={{width: '50%'}} className='btn btn-custom'>Sign Form</Button>
             <br />
             {openModal && (
               <Modal show={openModal} onHide={handleClose}>
@@ -84,17 +85,17 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
                         label='Employee 1. Name: '
                       >
                         <Form.Control
-                          type='text' 
-                          placeholder='Employee Name:' 
+                          type='text'
+                          placeholder='Employee Name:'
                           autoFocus
                         />
                       </FloatingLabel>
                     </Form.Group>
                     <Form.Group className='mb-3'>
                       <Form.Label>Signature: </Form.Label>
-                      <SignatureCanvas 
+                      <SignatureCanvas
                         penColor='black'
-                        canvasProps={{className: 'sign-canvas'}}
+                        canvasProps={{ className: 'sign-canvas' }}
                         ref={sigCanvas1}
                       />
                     </Form.Group>
@@ -104,16 +105,16 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
                         label='Employee 2. Name: '
                       >
                         <Form.Control
-                          type='text' 
-                          placeholder='Employee Name:' 
+                          type='text'
+                          placeholder='Employee Name:'
                         />
                       </FloatingLabel>
                     </Form.Group>
                     <Form.Group className='mb-3'>
                       <Form.Label>Signature: </Form.Label>
-                      <SignatureCanvas 
+                      <SignatureCanvas
                         penColor='black'
-                        canvasProps={{className: 'sign-canvas'}}
+                        canvasProps={{ className: 'sign-canvas' }}
                         ref={sigCanvas2}
                       />
                     </Form.Group>
@@ -132,7 +133,7 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
                       <Form.Label>Signature: </Form.Label>
                       <SignatureCanvas
                         penColor='black'
-                        canvasProps={{className: 'sign-canvas'}}
+                        canvasProps={{ className: 'sign-canvas' }}
                         ref={sigCanvas3}
                       />
                     </Form.Group>
@@ -151,12 +152,16 @@ const Signatures = ({prevStep, SaveAndExit, handleChange, handleSignChange, more
                       <Form.Label>Signature: </Form.Label>
                       <SignatureCanvas
                         penColor='black'
-                        canvasProps={{className: 'sign-canvas'}}
+                        canvasProps={{ className: 'sign-canvas' }}
                         ref={sigCanvas4}
                       />
                     </Form.Group>
                   </Form>
                 </Modal.Body>
+                <Modal.Footer>
+                  <Button style={{width: '20%'}} className='btn btn-secondary' onClick={handleClose}>Close</Button>
+                  <Button style={{width: '75%'}} className='btn-custom' onClick={Save}>Save Changes</Button>
+                </Modal.Footer>
               </Modal>
             )}
           </div>

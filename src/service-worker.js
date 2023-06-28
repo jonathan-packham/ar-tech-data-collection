@@ -3,58 +3,49 @@ import { precacheAndRoute } from 'workbox-precaching';
 
 precacheAndRoute(self.__WB_MANIFEST);
 
-const PRECACHE = 'ar-tech-pwa-v1';
-const RUNTIME = 'runtime';
-
-const PRECACHE_URLS = [
-    '../public/index.html',
-    './components',
-    './index.js',
-    './App.js',
-    './App.css',
-];
-
-// the installer handles precaching resources
-self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.open(PRECACHE).then(cache => cache.addAll(PRECACHE_URLS)).then(self.skipWaiting)
-    );
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('AR-Tech PWA')
+      .then(function(cache) {
+        cache.addAll([
+          '/',
+          '/src/index.html',
+          '/src/App.css',
+          '/src/App.js',
+          '/src/index.js',
+          '/src/index.css',
+          '/src/components/Components.css',
+          '/src/components/Auth.js',
+          '/src/components/deactivated.js',
+          '/src/components/eliminate.js',
+          '/src/components/forms.js',
+          '/src/components/hazardForm.js',
+          '/src/components/hazards1.js',
+          '/src/components/hazards2.js',
+          '/src/components/identifyhazards.js',
+          '/src/components/jobsteps.js',
+          '/src/components/logout.js',
+          '/src/components/ppe1.js',
+          '/src/components/profile.js',
+          '/src/components/reset.js',
+          '/src/components/signature.js',
+          '/src/components/withRouter.js',
+          '/src/assets/artechlogoGrey.jpg',
+          '/src/assets/artechlogoHorizontal.jpg',
+          '/src/assets/eye-slash.svg',
+          '/src/assets/htslogo.jpg',
+          '/src/assets/perfSquare.png',
+          '/src/assets/squareLogo.jpg'
+        ])
+      })
+  );
 });
 
-// the activate handler takes care of cleaning previous caches
-self.addEventListener('activate', event => {
-    const currentCaches = [PRECACHE, RUNTIME];
-    event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
-        }).then(cachesToDelete => {
-            return Promise.all(cachesToDelete.map(cacheToDelete => {
-                return caches.delete(cacheToDelete);
-            }));
-        }).then(() => self.clients.claim())
-    );
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(res) {
+        return res;
+      })
+  );
 });
-
-// The fetch handler serves responses for same-origin resources from a cache.
-// If no response is found, it populates the runtime cache with the response
-// from the network before returning it to the page.
-self.addEventListener('fetch', event => {
-    // Skip cross-origin requests, like those for Google Analytics.
-    if (event.request.url.startsWith(self.location.origin)) {
-      event.respondWith(
-        caches.match(event.request).then(cachedResponse => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          return caches.open(RUNTIME).then(cache => {
-            return fetch(event.request).then(response => {
-              // Put a copy of the response in the runtime cache.
-              return cache.put(event.request, response.clone()).then(() => {
-                return response;
-              });
-            });
-          });
-        })
-      );
-    }
-  });
